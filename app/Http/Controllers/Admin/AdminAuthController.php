@@ -20,7 +20,7 @@ class AdminAuthController extends Controller
         $user = User::where('email', $data['email'])->where('role','admin')->first();
 
         if (! $user || ! Hash::check($data['password'], $user->password)) {
-            dd($request->all());
+            //dd($request->all());
             return response()->json([
                 'message' => 'Invalid credentials',
             ], 401);

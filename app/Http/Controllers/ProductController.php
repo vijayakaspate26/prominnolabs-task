@@ -72,7 +72,7 @@ class ProductController extends Controller
                 'errors'  => $e->errors(),
             ], 422);
         } catch (\Throwable $e) {
-            dd($e);
+            //dd($e);
             DB::rollBack();
 
             return response()->json([
@@ -106,7 +106,7 @@ class ProductController extends Controller
     //  View PDF for a product 
     public function pdf(Product $product, Request $request)
     {
-        // ownership check (FK to sellers.id)
+        // ownership check 
         $user = $request->user();
         $seller = Seller::where('user_id', $user->id)->first();
 
