@@ -39,13 +39,13 @@
     // Basic check: if no admin token, send back to login
     const token = localStorage.getItem('admin_token');
     if (!token) {
-        window.location.href = '/login';
+        window.location.href = '/';
     }
 
     // Logout
     document.getElementById('logoutBtn').addEventListener('click', () => {
         localStorage.removeItem('admin_token');
-        window.location.href = '/login';
+        window.location.href = '/';
     });
 
     // Sidebar link click (only one tab now)

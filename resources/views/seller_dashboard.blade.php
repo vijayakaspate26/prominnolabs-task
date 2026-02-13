@@ -94,12 +94,12 @@
     // Auth check
     const token = localStorage.getItem('seller_token');
     if (!token) {
-        window.location.href = '/login';
+        window.location.href = '/';
     }
 
     document.getElementById('logoutBtn').addEventListener('click', () => {
         localStorage.removeItem('seller_token');
-        window.location.href = '/login';
+        window.location.href = '/';
     });
 
     // ========== Add product form with dynamic brands ==========

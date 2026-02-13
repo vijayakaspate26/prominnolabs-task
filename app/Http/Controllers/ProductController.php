@@ -130,7 +130,9 @@ class ProductController extends Controller
     // 4. Delete product
     public function destroy(Product $product, Request $request)
     {
-        if ($product->seller_id !== $request->user()->id) {
+        $user = $request->user();
+        $seller = Seller::where('user_id', $user->id)->first();
+        if ($product->seller_id !==  $seller->id) {
             return response()->json([
                 'message' => 'Unauthorized',
             ], 403);
